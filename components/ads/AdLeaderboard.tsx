@@ -8,21 +8,20 @@ export default function AdLeaderboard() {
 
   useEffect(() => {
     if (!ref.current || ref.current.childElementCount > 0) return
-    const s1 = document.createElement('script')
-    s1.innerHTML = `
-      atOptions = {
-        'key': 'd5c7f2890e0db5593f7c2e9dd8c71989',
-        'format': 'iframe',
-        'height': 90,
-        'width': 728,
-        'params': {}
-      };
+
+    // Each unit gets its own isolated script execution scope via innerHTML
+    ref.current.innerHTML = `
+      <script type="text/javascript">
+        atOptions = {
+          'key': 'd5c7f2890e0db5593f7c2e9dd8c71989',
+          'format': 'iframe',
+          'height': 90,
+          'width': 728,
+          'params': {}
+        };
+      </script>
+      <script type="text/javascript" src="https://www.highperformanceformat.com/d5c7f2890e0db5593f7c2e9dd8c71989/invoke.js"></script>
     `
-    const s2 = document.createElement('script')
-    s2.src = 'https://www.highperformanceformat.com/d5c7f2890e0db5593f7c2e9dd8c71989/invoke.js'
-    s2.async = true
-    ref.current.appendChild(s1)
-    ref.current.appendChild(s2)
   }, [])
 
   return (

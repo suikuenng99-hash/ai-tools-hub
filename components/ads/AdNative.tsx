@@ -8,9 +8,9 @@ export default function AdNative() {
 
   useEffect(() => {
     if (!ref.current || ref.current.childElementCount > 0) return
+
     const s = document.createElement('script')
     s.src = 'https://pl29205522.profitablecpmratenetwork.com/0af1ea5dc666bf582bf2f1cae842cf78/invoke.js'
-    s.async = true
     s.setAttribute('data-cfasync', 'false')
     ref.current.appendChild(s)
   }, [])
