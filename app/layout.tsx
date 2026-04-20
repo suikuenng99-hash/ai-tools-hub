@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Geist, Geist_Mono } from 'next/font/google'
+import Script from 'next/script'
 import './globals.css'
 import Header from '@/components/layout/Header'
 import Footer from '@/components/layout/Footer'
@@ -65,6 +66,10 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           crossOrigin="anonymous"
           strategy="afterInteractive"
         /> */}
+        <Script
+          src="https://pl29205418.profitablecpmratenetwork.com/66/03/71/660371d29d6dd464e2f1a309775de10e.js"
+          strategy="afterInteractive"
+        />
       </body>
     </html>
   )
