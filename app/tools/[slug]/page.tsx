@@ -9,6 +9,8 @@ import ProsConsList from '@/components/tools/ProsConsList'
 import RelatedTools from '@/components/tools/RelatedTools'
 import AdRectangle from '@/components/ads/AdRectangle'
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aisearches.us'
+
 interface Props {
   params: Promise<{ slug: string }>
 }
@@ -55,13 +57,14 @@ export default async function ToolDetailPage({ params }: Props) {
   const categoryMeta = getCategoryMeta(tool.category)
 
   // JSON-LD structured data
-  const jsonLd = {
+  const jsonLdApp = {
     '@context': 'https://schema.org',
     '@type': 'SoftwareApplication',
     name: tool.name,
     description: tool.description,
     applicationCategory: 'ProductivityApplication',
     operatingSystem: 'Web',
+    url: `${BASE_URL}/tools/${tool.slug}`,
     offers: {
       '@type': 'Offer',
       price: tool.pricing.model === 'free' || tool.pricing.model === 'open-source' ? '0' : tool.pricing.startingPrice ?? '0',
@@ -78,6 +81,20 @@ export default async function ToolDetailPage({ params }: Props) {
         }
       : {}),
   }
+
+  const jsonLdBreadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      ...(categoryMeta
+        ? [{ '@type': 'ListItem', position: 2, name: categoryMeta.label, item: `${BASE_URL}/category/${tool.category}` }]
+        : []),
+      { '@type': 'ListItem', position: categoryMeta ? 3 : 2, name: tool.name, item: `${BASE_URL}/tools/${tool.slug}` },
+    ],
+  }
+
+  const jsonLd = [jsonLdApp, jsonLdBreadcrumb]
 
   return (
     <>
@@ -141,7 +158,7 @@ export default async function ToolDetailPage({ params }: Props) {
             <a
               href={`/go/${tool.slug}`}
               target="_blank"
-              rel="noopener noreferrer"
+              rel="noopener noreferrer sponsored"
               className="rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 transition-colors"
             >
               Visit {tool.name} →
@@ -213,7 +230,7 @@ export default async function ToolDetailPage({ params }: Props) {
           <a
             href={`/go/${tool.slug}`}
             target="_blank"
-            rel="noopener noreferrer"
+            rel="noopener noreferrer sponsored"
             className="mt-5 inline-flex items-center gap-2 rounded-xl bg-violet-600 px-7 py-3 text-sm font-semibold text-white shadow-sm hover:bg-violet-700 transition-colors"
           >
             Get Started with {tool.name}

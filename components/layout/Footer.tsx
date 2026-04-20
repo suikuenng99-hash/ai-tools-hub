@@ -65,12 +65,12 @@ export default function Footer() {
         {/* Affiliate disclosure */}
         <div className="mt-8 border-t border-gray-200 pt-8">
           <p className="text-xs text-gray-400">
-            <strong className="font-medium text-gray-500">Affiliate Disclosure:</strong> AIToolsHub contains affiliate
+            <strong className="font-medium text-gray-500">Affiliate Disclosure:</strong> AISearches contains affiliate
             links. When you click a link and make a purchase, we may earn a commission at no extra cost to you. We only
             recommend tools we genuinely believe are useful.
           </p>
           <p className="mt-2 text-xs text-gray-400">
-            &copy; {new Date().getFullYear()} AIToolsHub. All rights reserved.
+            &copy; {new Date().getFullYear()} AISearches. All rights reserved.
           </p>
         </div>
       </div>

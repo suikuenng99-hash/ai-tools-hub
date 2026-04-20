@@ -15,15 +15,24 @@ const geistMono = Geist_Mono({
   subsets: ['latin'],
 })
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aisearches.us'
+
 export const metadata: Metadata = {
+  metadataBase: new URL(BASE_URL),
   title: {
     default: 'AISearches | Best AI Tools Directory 2026',
     template: '%s | AISearches',
   },
   description:
-    'Discover the best AI tools for writing, coding, image generation, video, audio, and more. Compare features, pricing, and reviews.',
-  keywords: ['AI tools', 'artificial intelligence', 'ChatGPT', 'Midjourney', 'AI directory', 'best AI tools'],
-  authors: [{ name: 'AISearches' }],
+    'Discover the best AI tools for writing, coding, image generation, video, audio, and more. Compare features, pricing, and reviews across 120+ tools.',
+  keywords: [
+    'AI tools', 'best AI tools', 'AI tools directory', 'artificial intelligence tools',
+    'AI software', 'ChatGPT alternatives', 'AI writing tools', 'AI image generator',
+    'AI coding assistant', 'AI video generator', 'free AI tools', 'AI tools comparison',
+  ],
+  authors: [{ name: 'AISearches', url: BASE_URL }],
+  creator: 'AISearches',
+  publisher: 'AISearches',
   icons: {
     icon: '/logo-icon.svg',
     shortcut: '/logo-icon.svg',
@@ -32,20 +41,31 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
+    url: BASE_URL,
     siteName: 'AISearches',
     title: 'AISearches | Best AI Tools Directory 2026',
     description:
-      'Discover the best AI tools for writing, coding, image generation, video, audio, and more.',
-    images: [{ url: '/logo-icon.svg' }],
+      'Discover and compare 120+ AI tools for writing, coding, image generation, video, audio, and more.',
+    images: [{ url: '/logo-icon.svg', width: 512, height: 512, alt: 'AISearches Logo' }],
   },
   twitter: {
-    card: 'summary_large_image',
+    card: 'summary',
     title: 'AISearches | Best AI Tools Directory 2026',
-    description: 'Discover the best AI tools for writing, coding, image generation, video, audio, and more.',
+    description: 'Discover and compare 120+ AI tools for writing, coding, image generation, video, and more.',
   },
   robots: {
     index: true,
     follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  alternates: {
+    canonical: BASE_URL,
   },
   other: {
     'impact-site-verification': 'f911808d-e7f5-41e4-9df2-cfd9c1f1463f',

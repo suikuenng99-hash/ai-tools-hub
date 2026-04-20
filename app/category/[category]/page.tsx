@@ -7,6 +7,8 @@ import type { ToolCategory } from '@/types/tool'
 import ToolCard from '@/components/tools/ToolCard'
 import AdLeaderboard from '@/components/ads/AdLeaderboard'
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aisearches.us'
+
 interface Props {
   params: Promise<{ category: string }>
 }
@@ -36,7 +38,30 @@ export default async function CategoryPage({ params }: Props) {
 
   const tools = getToolsByCategory(category as ToolCategory)
 
+  const jsonLdBreadcrumb = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: BASE_URL },
+      { '@type': 'ListItem', position: 2, name: meta.label, item: `${BASE_URL}/category/${category}` },
+    ],
+  }
+
+  const jsonLdCollection = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: `Best ${meta.label} AI Tools`,
+    description: meta.description,
+    url: `${BASE_URL}/category/${category}`,
+    numberOfItems: tools.length,
+  }
+
   return (
+    <>
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdBreadcrumb, jsonLdCollection]) }}
+    />
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
       {/* Breadcrumb */}
       <nav className="mb-6 flex items-center gap-2 text-sm text-gray-500">
@@ -71,5 +96,6 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       )}
     </div>
+    </>
   )
 }

@@ -1,3 +1,4 @@
+import type { Metadata } from 'next'
 import { getAllTools, getFeaturedTools, getToolCountByCategory } from '@/lib/tools'
 import { categories } from '@/lib/categories'
 import FeaturedTools from '@/components/home/FeaturedTools'
@@ -5,13 +6,58 @@ import ToolGrid from '@/components/home/ToolGrid'
 import AdLeaderboard from '@/components/ads/AdLeaderboard'
 import AdNative from '@/components/ads/AdNative'
 
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aisearches.us'
+
+export const metadata: Metadata = {
+  title: 'AISearches | Find the Best AI Tools for Any Task (2026)',
+  description:
+    'Browse and compare 120+ reviewed AI tools across writing, coding, image generation, video, audio, productivity, SEO, and more. Find what actually works.',
+  alternates: { canonical: '/' },
+}
+
 export default function HomePage() {
   const allTools = getAllTools()
   const featuredTools = getFeaturedTools()
   const countByCategory = getToolCountByCategory()
 
+  const jsonLdOrg = {
+    '@context': 'https://schema.org',
+    '@type': 'Organization',
+    name: 'AISearches',
+    url: BASE_URL,
+    logo: `${BASE_URL}/logo-icon.svg`,
+    description: 'AI tools directory helping you find the best AI software for any task.',
+  }
+
+  const jsonLdWebSite = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    name: 'AISearches',
+    url: BASE_URL,
+    description: `Browse and compare ${allTools.length}+ reviewed AI tools across writing, coding, image generation, video, audio, and more.`,
+    potentialAction: {
+      '@type': 'SearchAction',
+      target: `${BASE_URL}/?q={search_term_string}`,
+      'query-input': 'required name=search_term_string',
+    },
+  }
+
+  const jsonLdCollection = {
+    '@context': 'https://schema.org',
+    '@type': 'CollectionPage',
+    name: 'Best AI Tools Directory',
+    description: `Curated directory of ${allTools.length}+ AI tools across ${categories.length} categories.`,
+    url: BASE_URL,
+    numberOfItems: allTools.length,
+  }
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify([jsonLdOrg, jsonLdWebSite, jsonLdCollection]) }}
+      />
+
       {/* Hero */}
       <section className="bg-gradient-to-b from-violet-50 to-white py-20 text-center">
         <div className="mx-auto max-w-3xl px-4">
