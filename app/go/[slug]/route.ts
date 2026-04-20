@@ -10,7 +10,7 @@ export async function GET(_request: Request, { params }: Params) {
   const tool = getToolBySlug(slug)
 
   if (!tool) {
-    return NextResponse.redirect(new URL('/', 'https://aitoolshub.com'), { status: 302 })
+    return NextResponse.redirect(new URL('/', 'https://aisearches.us'), { status: 302 })
   }
 
   const destination = tool.affiliateUrl ?? tool.websiteUrl
@@ -20,10 +20,10 @@ export async function GET(_request: Request, { params }: Params) {
   try {
     url = new URL(destination)
   } catch {
-    return NextResponse.redirect(new URL('/', 'https://aitoolshub.com'), { status: 302 })
+    return NextResponse.redirect(new URL('/', 'https://aisearches.us'), { status: 302 })
   }
 
-  url.searchParams.set('utm_source', 'aitoolshub')
+  url.searchParams.set('utm_source', 'aisearches')
   url.searchParams.set('utm_medium', 'affiliate')
   url.searchParams.set('utm_campaign', 'directory')
   url.searchParams.set('utm_content', slug)

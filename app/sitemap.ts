@@ -1,7 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { getAllSlugs, getAllCategories } from '@/lib/tools'
 
-const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aitoolshub.com'
+const BASE_URL = process.env.NEXT_PUBLIC_BASE_URL ?? 'https://aisearches.us'
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const slugs = getAllSlugs()
