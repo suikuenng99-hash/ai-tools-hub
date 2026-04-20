@@ -16,29 +16,38 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'AI Tools Hub | Best AI Tools Directory 2025',
-    template: '%s | AI Tools Hub',
+    default: 'AISearches | Best AI Tools Directory 2026',
+    template: '%s | AISearches',
   },
   description:
     'Discover the best AI tools for writing, coding, image generation, video, audio, and more. Compare features, pricing, and reviews.',
   keywords: ['AI tools', 'artificial intelligence', 'ChatGPT', 'Midjourney', 'AI directory', 'best AI tools'],
-  authors: [{ name: 'AIToolsHub' }],
+  authors: [{ name: 'AISearches' }],
+  icons: {
+    icon: '/logo-icon.svg',
+    shortcut: '/logo-icon.svg',
+    apple: '/logo-icon.svg',
+  },
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    siteName: 'AI Tools Hub',
-    title: 'AI Tools Hub | Best AI Tools Directory 2025',
+    siteName: 'AISearches',
+    title: 'AISearches | Best AI Tools Directory 2026',
     description:
       'Discover the best AI tools for writing, coding, image generation, video, audio, and more.',
+    images: [{ url: '/logo-icon.svg' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'AI Tools Hub | Best AI Tools Directory 2025',
+    title: 'AISearches | Best AI Tools Directory 2026',
     description: 'Discover the best AI tools for writing, coding, image generation, video, audio, and more.',
   },
   robots: {
     index: true,
     follow: true,
+  },
+  other: {
+    'impact-site-verification': 'f911808d-e7f5-41e4-9df2-cfd9c1f1463f',
   },
 }
 

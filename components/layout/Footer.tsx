@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { categories } from '@/lib/categories'
 
 export default function Footer() {
@@ -8,13 +9,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 gap-8 md:grid-cols-3">
           {/* Brand */}
           <div>
-            <Link href="/" className="flex items-center gap-2">
-              <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600 text-white font-bold text-sm">
-                AI
-              </div>
-              <span className="text-lg font-bold text-gray-900">
-                AI Tools<span className="text-violet-600">Hub</span>
-              </span>
+            <Link href="/" className="flex items-center">
+              <Image src="/logo.svg" alt="AISearches" width={160} height={40} />
             </Link>
             <p className="mt-3 text-sm text-gray-500">
               Discover the best AI tools for writing, coding, image generation, video, and more.

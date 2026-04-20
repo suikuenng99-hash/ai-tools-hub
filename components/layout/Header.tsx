@@ -1,4 +1,5 @@
 import Link from 'next/link'
+import Image from 'next/image'
 import { categories } from '@/lib/categories'
 
 export default function Header() {
@@ -6,13 +7,8 @@ export default function Header() {
     <header className="sticky top-0 z-50 border-b border-gray-200 bg-white/80 backdrop-blur-md">
       <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         {/* Logo */}
-        <Link href="/" className="flex items-center gap-2">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-violet-600 text-white font-bold text-sm">
-            AI
-          </div>
-          <span className="text-lg font-bold text-gray-900">
-            AI Tools<span className="text-violet-600">Hub</span>
-          </span>
+        <Link href="/" className="flex items-center">
+          <Image src="/logo.svg" alt="AISearches" width={160} height={40} priority />
         </Link>
 
         {/* Desktop nav */}

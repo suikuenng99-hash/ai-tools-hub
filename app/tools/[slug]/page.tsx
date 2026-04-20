@@ -7,7 +7,7 @@ import Badge from '@/components/ui/Badge'
 import RatingStars from '@/components/ui/RatingStars'
 import ProsConsList from '@/components/tools/ProsConsList'
 import RelatedTools from '@/components/tools/RelatedTools'
-import AdSenseBanner from '@/components/ads/AdSenseBanner'
+import HouseAd from '@/components/ads/HouseAd'
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -159,7 +159,7 @@ export default async function ToolDetailPage({ params }: Props) {
 
         {/* Ad */}
         <div className="mt-8">
-          <AdSenseBanner height={90} />
+          <HouseAd />
         </div>
 
         {/* Description */}

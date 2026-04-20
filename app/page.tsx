@@ -2,7 +2,7 @@ import { getAllTools, getFeaturedTools, getToolCountByCategory } from '@/lib/too
 import { categories } from '@/lib/categories'
 import FeaturedTools from '@/components/home/FeaturedTools'
 import ToolGrid from '@/components/home/ToolGrid'
-import AdSenseBanner from '@/components/ads/AdSenseBanner'
+import HouseAd from '@/components/ads/HouseAd'
 
 export default function HomePage() {
   const allTools = getAllTools()
@@ -66,7 +66,7 @@ export default function HomePage() {
 
       {/* Ad banner */}
       <div className="mx-auto max-w-7xl px-4 pt-8 sm:px-6 lg:px-8">
-        <AdSenseBanner height={90} />
+        <HouseAd />
       </div>
 
       {/* Featured tools */}
@@ -77,7 +77,7 @@ export default function HomePage() {
 
       {/* Bottom ad */}
       <div className="mx-auto max-w-7xl px-4 pb-12 sm:px-6 lg:px-8">
-        <AdSenseBanner height={90} />
+        <HouseAd />
       </div>
     </>
   )

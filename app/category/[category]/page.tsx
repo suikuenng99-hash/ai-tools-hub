@@ -5,7 +5,7 @@ import { getAllCategories, getToolsByCategory } from '@/lib/tools'
 import { getCategoryMeta } from '@/lib/categories'
 import type { ToolCategory } from '@/types/tool'
 import ToolCard from '@/components/tools/ToolCard'
-import AdSenseBanner from '@/components/ads/AdSenseBanner'
+import HouseAd from '@/components/ads/HouseAd'
 
 interface Props {
   params: Promise<{ category: string }>
@@ -54,7 +54,7 @@ export default async function CategoryPage({ params }: Props) {
         <p className="mt-2 text-sm text-gray-500">{tools.length} tools found</p>
       </div>
 
-      <AdSenseBanner height={90} className="mb-8" />
+      <HouseAd className="mb-8" />
 
       {tools.length === 0 ? (
         <div className="flex flex-col items-center py-24 text-center">
