@@ -58,16 +58,16 @@ export default function ToolCard({ tool }: ToolCardProps) {
         </span>
       </div>
 
-      {/* Visit CTA */}
-      <a
-        href={`/go/${tool.slug}`}
-        target="_blank"
-        rel="noopener noreferrer"
-        onClick={(e) => e.stopPropagation()}
+      {/* Visit CTA — button avoids nested <a> inside <Link> */}
+      <button
+        onClick={(e) => {
+          e.preventDefault()
+          window.open(`/go/${tool.slug}`, '_blank', 'noopener,noreferrer')
+        }}
         className="mt-4 block w-full rounded-lg bg-violet-600 py-2 text-center text-sm font-medium text-white transition-colors hover:bg-violet-700"
       >
         Visit {tool.name}
-      </a>
+      </button>
     </Link>
   )
 }
