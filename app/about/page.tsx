@@ -38,13 +38,6 @@ export default function AboutPage() {
           See our <Link href="/affiliate-disclosure" className="text-violet-600 hover:underline">Affiliate Disclosure</Link> for full details.
         </p>
 
-        <h2 className="text-xl font-bold text-gray-900">Contact</h2>
-        <p>
-          Have a tool to suggest or a question?{' '}
-          <a href="mailto:suikuenng99@gmail.com" className="text-violet-600 hover:underline">
-            suikuenng99@gmail.com
-          </a>
-        </p>
       </div>
 
       <div className="mt-12">

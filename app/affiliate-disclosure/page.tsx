@@ -37,12 +37,6 @@ export default function AffiliateDisclosurePage() {
           free and continuously updated. Thank you for supporting AISearches.
         </p>
 
-        <p>
-          If you have questions about our affiliate relationships, contact us at:{' '}
-          <a href="mailto:suikuenng99@gmail.com" className="text-violet-600 hover:underline">
-            suikuenng99@gmail.com
-          </a>
-        </p>
       </div>
     </div>
   )

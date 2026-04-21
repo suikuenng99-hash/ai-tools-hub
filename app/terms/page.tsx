@@ -80,15 +80,6 @@ export default function TermsPage() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-gray-900">9. Contact</h2>
-          <p className="mt-2">
-            For questions about these Terms, contact us at:{' '}
-            <a href="mailto:suikuenng99@gmail.com" className="text-violet-600 hover:underline">
-              suikuenng99@gmail.com
-            </a>
-          </p>
-        </section>
       </div>
     </div>
   )

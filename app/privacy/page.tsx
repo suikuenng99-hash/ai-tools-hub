@@ -27,7 +27,6 @@ export default function PrivacyPage() {
           <ul className="mt-2 list-disc pl-6 space-y-1">
             <li><strong>Usage Data:</strong> Pages visited, time spent, referring URLs, browser type, and device information collected automatically via analytics tools.</li>
             <li><strong>Cookies:</strong> Small data files stored on your device to improve your experience and track affiliate referrals.</li>
-            <li><strong>Voluntarily Provided Information:</strong> Any information you choose to submit via contact forms or email.</li>
           </ul>
         </section>
 
@@ -86,7 +85,6 @@ export default function PrivacyPage() {
             <li>Request correction or deletion of your data</li>
             <li>Opt out of analytics tracking</li>
           </ul>
-          <p className="mt-2">To exercise these rights, contact us at the email below.</p>
         </section>
 
         <section>
@@ -105,15 +103,6 @@ export default function PrivacyPage() {
           </p>
         </section>
 
-        <section>
-          <h2 className="text-xl font-bold text-gray-900">11. Contact Us</h2>
-          <p className="mt-2">
-            If you have any questions about this Privacy Policy, please contact us at:{' '}
-            <a href="mailto:suikuenng99@gmail.com" className="text-violet-600 hover:underline">
-              suikuenng99@gmail.com
-            </a>
-          </p>
-        </section>
       </div>
     </div>
   )
